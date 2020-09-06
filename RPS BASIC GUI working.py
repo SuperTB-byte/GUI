@@ -50,8 +50,8 @@ def youPick(yourChoice):
     
     compPick = computerPick()
     
-    if click == True:
-        if yourChoice == 'rock' and compPick == 'rock':
+    if click == True: #ROCKchoice
+        if yourChoice == ('rock' and compPick == 'rock') or (yourChoice == 'paper' and compPick == 'paper') or (yourChoice == 'scissor' and compPick == 'scissor'):
             d.pack()
             click == False
             d.after(2000, d.pack_forget)
@@ -66,5 +66,6 @@ def youPick(yourChoice):
             click == False
             w.after(2000, w.pack_forget)
             
+        return compPick
             #ONLY PRINTS ONCE OF EACH CONDITION
 root.mainloop()
