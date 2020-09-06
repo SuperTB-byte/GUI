@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sat Sep  5 16:17:59 2020
+Created on Sun Sep  6 10:57:58 2020
 
-@author: Thong
+@author: CamellaDo
 """
+
+
 from tkinter import *
 import random as r
 import time
@@ -36,13 +39,15 @@ b1.pack()
 b2.pack()
 b3.pack()
 
-#creat an event loop
+
+#create an event loop
 
 def play():
-    global b1,b2,b3,c1,c2,c3
+    global b1,b2,b3,c1,c2,c3,w,l,d
     
 def computerPick():
     choice=r.choice(["rock", "paper", "scissor"])
+    print("Computer:"+choice)
     return choice
     
 def youPick(yourChoice):   
@@ -51,21 +56,30 @@ def youPick(yourChoice):
     compPick = computerPick()
     
     if click == True: #ROCKchoice
-        if yourChoice == ('rock' and compPick == 'rock') or (yourChoice == 'paper' and compPick == 'paper') or (yourChoice == 'scissor' and compPick == 'scissor'):
+        if (yourChoice == 'rock' and compPick == 'rock') or (yourChoice == 'paper' and compPick == 'paper') or (yourChoice == 'scissor' and compPick == 'scissor'):
             d.pack()
+            print("You:"+yourChoice)
+            print("Draw")
             click == False
             d.after(2000, d.pack_forget)
             
-        elif compPick == 'paper':
+        elif (yourChoice == 'rock' and compPick == 'paper') or (yourChoice == 'paper' and compPick == 'scissor') or (yourChoice == 'scissor' and compPick == 'rock'):
             l.pack()
+            print("You:"+yourChoice)
+            print("Lose")
             click == False
             l.after(2000, l.pack_forget)
             
         else:
             w.pack()
+            print("You:"+yourChoice)
+            print("Win")
             click == False
             w.after(2000, w.pack_forget)
-            
+        
         return compPick
             #ONLY PRINTS ONCE OF EACH CONDITION
 root.mainloop()
+
+
+
